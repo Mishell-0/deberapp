@@ -1,0 +1,55 @@
+﻿@model AppLogin.ViewModels.UsuarioMV
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    Regístrate
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Acceso" asp-action="Registrarse" method="post">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" asp-for="NombreCompleto" placeholder="Nombre Completo"/>
+                            <span class="text-danger" asp-validation-for="NombreCompleto"></span>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="email" asp-for="Correo" placeholder="Correo" />
+                            <span class="text-danger" asp-validation-for="Correo"></span>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="password" asp-for="Clave" placeholder="Contraseña" />
+                            <span class="text-danger" asp-validation-for="Clave"></span>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="password" asp-for="ConfirmarClave" placeholder="Confirmar Contraseña" />
+                            <span class="text-danger" asp-validation-for="ConfirmarClave"></span>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                            <button class="btn btn-primary" type="submit">Registrarse</button>
+                        </div>
+
+                        ¿Ya tienes una cuenta? <a asp-controller="Acceso" asp-action="Login">Iniciar Sesión</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
